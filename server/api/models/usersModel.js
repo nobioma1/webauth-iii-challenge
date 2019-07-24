@@ -8,6 +8,12 @@ function getUserById(id) {
     .first();
 }
 
+function getUserByUsername(username) {
+  return db('users')
+    .where({ username })
+    .first();
+}
+
 function addUser({ username, password, department }) {
   const user = {
     username,
@@ -19,4 +25,4 @@ function addUser({ username, password, department }) {
     .then(([id]) => getUserById(id));
 }
 
-module.exports = { addUser };
+module.exports = { addUser, getUserByUsername };

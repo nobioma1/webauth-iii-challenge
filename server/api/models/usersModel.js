@@ -25,9 +25,10 @@ function addUser({ username, password, department }) {
     .then(([id]) => getUserById(id));
 }
 
-function getAllUsers() {
+function getAllUsers(department) {
   return db('users')
-    .select('id', 'username', 'department');
+    .select('id', 'username', 'department')
+    .where({ department });
 }
 
 module.exports = { addUser, getUserByUsername, getAllUsers };

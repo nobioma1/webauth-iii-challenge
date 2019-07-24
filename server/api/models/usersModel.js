@@ -25,4 +25,9 @@ function addUser({ username, password, department }) {
     .then(([id]) => getUserById(id));
 }
 
-module.exports = { addUser, getUserByUsername };
+function getAllUsers() {
+  return db('users')
+    .select('id', 'username', 'department');
+}
+
+module.exports = { addUser, getUserByUsername, getAllUsers };

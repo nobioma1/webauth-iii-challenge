@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const { addUser } = require('../models/usersModel');
-const generateToken = require('../helpers/generateToken');
+const { generateToken } = require('../helpers/authToken');
 
 async function register(req, res) {
   const user = req.body;
